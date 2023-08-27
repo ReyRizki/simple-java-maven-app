@@ -1,5 +1,5 @@
 node {
-    docker.image('maven:3.9.0') {
+    docker.image('maven:3.9.0').withRun('-v /root/.m2:/root/.m2') {
         stage('Build') {
             sh 'mvn -B -DskipTests clean package'
         }
